@@ -1,0 +1,115 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>My Basic Website</title>
+  <style>
+    :root {
+      --bg: #fff;
+      --text: #000;
+      --header-bg: #333;
+      --footer-bg: #333;
+      --nav-bg: #444;
+      --link-color: white;
+    }
+    [data-theme="dark"] {
+      --bg: #121212;
+      --text: #e0e0e0;
+      --header-bg: #1e1e1e;
+      --footer-bg: #1e1e1e;
+      --nav-bg: #2c2c2c;
+    }
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: var(--bg);
+      color: var(--text);
+      transition: background 0.3s, color 0.3s;
+    }
+    header {
+      background-color: var(--header-bg);
+      color: white;
+      padding: 1em;
+      text-align: center;
+    }
+    nav {
+      background: var(--nav-bg);
+      padding: 0.5em;
+      text-align: center;
+    }
+    nav a {
+      color: var(--link-color);
+      margin: 0 1em;
+      text-decoration: none;
+    }
+    main {
+      padding: 2em;
+    }
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 1em;
+    }
+    .gallery img {
+      width: 100%;
+      border-radius: 8px;
+    }
+    footer {
+      background: var(--footer-bg);
+      color: white;
+      text-align: center;
+      padding: 1em;
+      position: fixed;
+      width: 100%;
+      bottom: 0;
+    }
+    button {
+      margin-top: 1em;
+      padding: 0.5em 1em;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Welcome to My Website</h1>
+  </header>
+
+  <nav>
+    <a href="#">Home</a>
+    <a href="#">About</a>
+    <button onclick="toggleTheme()">Toggle Theme</button>
+  </nav>
+
+  <main>
+    <h2>Hello, world!</h2>
+    <p>This is a basic website layout built with HTML, CSS, and JavaScript.</p>
+    <button onclick="alert('Thanks for clicking!')">Click Me</button>
+
+    <h3>Image Gallery</h3>
+    <div class="gallery">
+      <img src="https://via.placeholder.com/150" alt="Sample 1" />
+      <img src="https://via.placeholder.com/150" alt="Sample 2" />
+      <img src="https://via.placeholder.com/150" alt="Sample 3" />
+      <img src="https://via.placeholder.com/150" alt="Sample 4" />
+    </div>
+  </main>
+
+  <footer>
+    &copy; 2025 My Website. All rights reserved.
+  </footer>
+
+  <script>
+    function toggleTheme() {
+      const html = document.documentElement;
+      const current = html.getAttribute('data-theme');
+      html.setAttribute('data-theme', current === 'dark' ? 'light' : 'dark');
+    }
+    // Set default theme
+    document.documentElement.setAttribute('data-theme', 'light');
+  </script>
+</body>
+</html>
